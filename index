@@ -1,0 +1,39 @@
+<html>
+ <head>
+  <title> Order </title>
+ </head>
+ <body>
+  <form action="index.php" method="post" name="form">
+    Full Name:
+     <input type= "text" name ="fullname"><br><br />
+    Item:  
+     <select name="Items">
+      <option id="Item1" value= "20"  > Item 1   </option>
+      <option id="Item2"   value="30" > Item 2   </option>
+      <option id="Item3"   value="60" > Item 3   </option>
+      </select><br><br />
+    Quantity:
+     <input type="number" name ="q" min="0"/><br><br />
+    <input type="submit" value ="Submit" name="submitButton"><br />
+    <input type="reset" value="clean">
+  </form>
+<pre>
+<?php  
+   if(isset($_POST['submitButton']))
+   {   
+     echo  "<b> Customer name: " .$fullname ."</b> ";
+     echo "<b>".$_POST['fullname']."</b>";
+	 echo  "<br> <b> quantity:".$_POST['q']." </b> ";
+	  $quan =$_POST['q'] ;
+	  if(!empty($_POST['Items']))
+		  echo  "<br> <b> Price of Item:".$_POST['Items']." </b> ";
+	  $numb =$_POST['Items'];
+	  echo  "<br> <b> result: </b> ";
+	  if($quan!=0&&$numb!=0)
+		  echo "<b>".$quan*$numb ."</b>";
+		  echo "<br> <b>Comment: good item" .$id ."</b><br>";
+}
+?>
+</pre>
+</body>
+</html>
